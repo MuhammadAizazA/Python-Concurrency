@@ -10,7 +10,7 @@ def heavy_calculation(n, myid):
     print(myid, "is done")
 
 
-def heavy_io(n, myid):  
+def heavy_io(myid):  
     time.sleep(2)
     print(myid, "is done")
 
