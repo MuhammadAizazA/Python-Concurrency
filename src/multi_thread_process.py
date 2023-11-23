@@ -19,10 +19,10 @@ def main():
     start = time.perf_counter()
     with concurrent.futures.ProcessPoolExecutor(max_workers=None) as Executor:
         if __name__=='__main__':
-            result = list(Executor.map(calculate_square_fun, numbers))
+            Executor.map(calculate_square_fun, numbers)
             num_processes = len(multiprocessing.active_children())
             print(f"Number of active Process: {num_processes}")
-            result2 = list(Executor.map(just_fun, numbers))
+            Executor.map(just_fun, numbers)
             num_processes = len(multiprocessing.active_children())
             print(f"Number of active Process: {num_processes}")
     
@@ -33,10 +33,10 @@ def main():
     start = time.perf_counter()
     with concurrent.futures.ThreadPoolExecutor(max_workers=None) as Executor1: 
         
-        result = list(Executor1.map(calculate_square_fun, numbers))
+        Executor1.map(calculate_square_fun, numbers)
         num_threads = threading.active_count()
         print(f"Number of active threads: {num_threads}")
-        result2 = list(Executor1.map(just_fun, numbers))
+        Executor1.map(just_fun, numbers)
         num_threads = threading.active_count()
         print(f"Number of active threads: {num_threads}")
 
